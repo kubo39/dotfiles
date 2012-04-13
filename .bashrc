@@ -8,6 +8,9 @@ PS1="\[\033[032;040m\]\h@\u:\W\$(__git_ps1) \$ "
 # Editor
 export EDITOR=emacs
 
+# python history file.
+export PYTHONSTARTUP=~/.pyrc
+
 export SCALA_HOME=/home/username/scala
 export PATH=$PATH:$SCALA_HOME/bin
 
