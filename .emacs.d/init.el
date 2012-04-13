@@ -23,22 +23,11 @@
 
 ;-------------------------------------------
 
-
 ;;; auto-install.el
 ;(when (require 'auto-install nil t)
 ; (setq auto-install-directory "~/.emacs.d/elisp/")
 ; (auto-install-update-emacswiki-package-name t)
 ; (auto-install-compatibility-setup))
-
-;;; 起動時にバッファ２分割、左側に eshell 表示
-;(defun split-window-and-run-eshell()
-;  (setq w (selected-window))
-;  (setq w2 (split-window w nil t))
-;  (select-window w)
-;  (eshell)
-;  (select-window w2))
-;(add-hook 'after-init-hook (lambda()(split-window-and-run-eshell)))
-
 
 ;;; ターミナルエミュレータのシェルを bash に設定
 (when (require 'multi-term nil t)
@@ -200,3 +189,44 @@
 ;;haml-mode
 (require 'haml-mode)
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
+
+
+;;;;  flymake for ruby
+(when (load "flymake" t)
+; (require 'flymake)
+;; I don't like the default colors :)
+(set-face-background 'flymake-errline "red4")
+(set-face-background 'flymake-warnline "dark slate blue")
+;; Invoke ruby with '-c' to get syntax checking
+(defun flymake-ruby-init ()
+  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+         (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list "ruby" (list "-c" local-file)))))
+(push '(".+\\.rb$" flymake-ruby-init) flymake-allowed-file-name-masks)
+(push '(".+\\.ru$" flymake-ruby-init) flymake-allowed-file-name-masks)
+(push '("Rakefile$" flymake-ruby-init) flymake-allowed-file-name-masks)
+(push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
+
+(add-hook
+ 'ruby-mode-hook
+ '(lambda ()
+    ;; Don't want flymake mode for ruby regions in rhtml files
+    (if (not (null buffer-file-name)) (flymake-mode))))
+
+
+;;; python: flymake+pyflakes+pep8
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+(when (load "flymake" t)
+  (defun flymake-pyflakes-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		       'flymake-create-temp-inplace))
+	   (local-file (file-relative-name
+			temp-file
+			(file-name-directory buffer-file-name))))
+      (list "~/bin/pychecker"  (list local-file))))
+  (add-to-list 'flymake-allowed-file-name-masks
+	       '("\\.py\\'" flymake-pyflakes-init)))
+(load-library "flymake-cursor")
