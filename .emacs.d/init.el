@@ -204,12 +204,13 @@
          (local-file  (file-relative-name
                        temp-file
                        (file-name-directory buffer-file-name))))
-    (list "ruby" (list "-c" local-file)))))
-(push '(".+\\.rb$" flymake-ruby-init) flymake-allowed-file-name-masks)
-(push '(".+\\.ru$" flymake-ruby-init) flymake-allowed-file-name-masks)
-(push '("Rakefile$" flymake-ruby-init) flymake-allowed-file-name-masks)
-(push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
-
+    (list "ruby" (list "-c" local-file))));)
+  (add-to-list 'flymake-allowed-file-name-masks
+	       '("\\.rb\\'" flymake-ruby-init))
+  (add-to-list 'flymake-allowed-file-name-masks
+	       '("\\.ru\\'" flymake-ruby-init))
+  (add-to-list 'flymake-allowed-file-name-masks
+	       '("Rakefile$" flymake-ruby-init)))
 (add-hook
  'ruby-mode-hook
  '(lambda ()
