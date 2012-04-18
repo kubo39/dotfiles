@@ -24,10 +24,10 @@
 ;-------------------------------------------
 
 ;;; auto-install.el
-;(when (require 'auto-install nil t)
-; (setq auto-install-directory "~/.emacs.d/elisp/")
-; (auto-install-update-emacswiki-package-name t)
-; (auto-install-compatibility-setup))
+(when (require 'auto-install nil t)
+ (setq auto-install-directory "~/.emacs.d/elisp/")
+ (auto-install-update-emacswiki-package-name t)
+ (auto-install-compatibility-setup))
 
 ;;; ターミナルエミュレータのシェルを bash に設定
 (when (require 'multi-term nil t)
@@ -102,6 +102,12 @@
 
 ;;; スタートアップメッセージを非表示
 (setq inhibit-startup-message t)
+
+;;; Emacs が保持する terminfo を利用する
+(setq system-uses-terminfo nil)
+
+;;; shift+カーソルキーで分割ウィンドウの切り替え
+;(windmove-default-keybindings)
 
 ;;; yes と入力するのは面倒なので y でokにする
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -236,6 +242,3 @@
 	       '("\\.py\\'" flymake-pyflakes-init)))
 (load-library "flymake-cursor")
 
-
-(setq system-uses-terminfo nil)
-(windmove-default-keybindings)
