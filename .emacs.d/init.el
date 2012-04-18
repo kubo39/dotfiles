@@ -58,13 +58,17 @@
 	 (background-color . "black")  ; 背景は黒
 	 (border-color     . "black")
 	 (mouse-color      . "white")
-	 (cursor-color     . "white"))
+	 (cursor-color     . "green"))
        initial-frame-alist))
 
 
 ;;; undo-tree: Undo の履歴を視覚化
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode))
+
+; 画面外の文字は折り返しして表示
+(setq truncate-lines t)
+(setq truncate-partial-width-windows nil)
 
 ;;; 対応する括弧を強調
 (show-paren-mode t)
@@ -169,7 +173,7 @@
 (setq interpreter-mode-alist (append
  '(("java" . java-mode)) interpreter-mode-alist))
 (setq java-deep-indent-paren-style nil)
-(add-hook 'java-mode-hook '(lambda () (inf-java-keys)))
+;(add-hook 'java-mode-hook '(lambda () (inf-java-keys)))
 
 
 ;;; *.ru
@@ -231,3 +235,7 @@
   (add-to-list 'flymake-allowed-file-name-masks
 	       '("\\.py\\'" flymake-pyflakes-init)))
 (load-library "flymake-cursor")
+
+
+(setq system-uses-terminfo nil)
+(windmove-default-keybindings)
