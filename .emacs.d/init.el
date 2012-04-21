@@ -24,10 +24,10 @@
 ;-------------------------------------------
 
 ;;; auto-install.el
-(when (require 'auto-install nil t)
- (setq auto-install-directory "~/.emacs.d/elisp/")
- (auto-install-update-emacswiki-package-name t)
- (auto-install-compatibility-setup))
+;(when (require 'auto-install nil t)
+; (setq auto-install-directory "~/.emacs.d/elisp/")
+; (auto-install-update-emacswiki-package-name t)
+; (auto-install-compatibility-setup))
 
 ;;; ターミナルエミュレータのシェルを bash に設定
 (when (require 'multi-term nil t)
@@ -41,6 +41,21 @@
   (multi-term)
   (select-window w2))
 (add-hook 'after-init-hook (lambda()(split-window-and-run-term)))
+
+
+; 自動略語補完
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
+(defcustom ac-modes
+  '(emacs-lisp-mode lisp-interaction-mode
+                    c-mode c++-mode java-mode
+                    perl-mode cperl-mode python-mode ruby-mode
+                    makefile-mode sh-mode fortran-mode f90-mode ada-mode
+                    xml-mode sgml-mode)
+  "Majo modes `auto-complete-mode' can run on."
+  :type '(list symbol)
+  :group 'auto-complete)
 
 
 ;;; region の色
@@ -105,6 +120,9 @@
 
 ;;; Emacs が保持する terminfo を利用する
 (setq system-uses-terminfo nil)
+
+;;; バッテリー残量
+(display-battery-mode 1)
 
 ;;; shift+カーソルキーで分割ウィンドウの切り替え
 ;(windmove-default-keybindings)
@@ -179,7 +197,8 @@
 (setq interpreter-mode-alist (append
  '(("java" . java-mode)) interpreter-mode-alist))
 (setq java-deep-indent-paren-style nil)
-;(add-hook 'java-mode-hook '(lambda () (inf-java-keys)))
+(add-hook 'java-mode-hook '(lambda () (inf-java-keys)))
+
 
 
 ;;; *.ru
@@ -189,9 +208,11 @@
  '(("ruby" . ruby-mode)) interpreter-mode-alist)x)
 
 
-;;; *.tac
+;;; *.tac, *.pyx
 (setq auto-mode-alist (cons
- '("\\.tac$" . python-mode) auto-mode-alist))
+  '("\\.tac$" . python-mode) auto-mode-alist))
+(setq auto-mode-alist (cons
+  '("\\.pyx$" . python-mode) auto-mode-alist))
 (setq interpreter-mode-alist (append
  '(("python" . python-mode)) interpreter-mode-alist))
 
@@ -214,7 +235,7 @@
          (local-file  (file-relative-name
                        temp-file
                        (file-name-directory buffer-file-name))))
-    (list "ruby" (list "-c" local-file))));)
+    (list "ruby" (list "-c" local-file))))
   (add-to-list 'flymake-allowed-file-name-masks
 	       '("\\.rb\\'" flymake-ruby-init))
   (add-to-list 'flymake-allowed-file-name-masks
@@ -241,4 +262,4 @@
   (add-to-list 'flymake-allowed-file-name-masks
 	       '("\\.py\\'" flymake-pyflakes-init)))
 (load-library "flymake-cursor")
-
+  
