@@ -91,11 +91,15 @@
 ;;; 現在行を目立たせる
 ;(global-hl-line-mode)
 
+;;; カーソルの位置が何行目かを表示する
+;(line-number-mode t)
+
 ;;; カーソルの位置が何文字目かを表示する
 (column-number-mode t)
 
-;;; カーソルの位置が何行目かを表示する
-(line-number-mode t)
+;; 行番号表示
+(global-linum-mode)
+(setq linum-format "%4d")
 
 ;; モードラインに時刻を表示させる
 ;(display-time)
@@ -112,7 +116,7 @@
 ;;; C-k で行全体を削除
 (setq kill-whole-line t)
 
-;; Translate C-h to DEL.
+;; BackspaceをC-hに割り当て
 (keyboard-translate ?\C-h ?\C-?)
 
 ;;; スタートアップメッセージを非表示
@@ -122,7 +126,7 @@
 (setq system-uses-terminfo nil)
 
 ;;; バッテリー残量
-(display-battery-mode 1)
+(display-battery-mode t)
 
 ;;; shift+カーソルキーで分割ウィンドウの切り替え
 ;(windmove-default-keybindings)
@@ -130,8 +134,6 @@
 ;;; yes と入力するのは面倒なので y でokにする
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;;; sudo とか ssh とか ubuntu用
-(require 'tramp)
 
 ;;; anything
 (require 'anything)
@@ -152,7 +154,41 @@
 
 ;; =====================================================
 ;;
-;; Language mode(各言語モード)
+;; root権限でファイルを開く設定
+;;
+;; =====================================================
+
+;;; sudo とか ssh とか ubuntu用
+(require 'tramp)
+
+(defun th-rename-tramp-buffer ()
+  (when (file-remote-p (buffer-file-name))
+    (rename-buffer
+     (format "%s:%s"
+             (file-remote-p (buffer-file-name) 'method)
+             (buffer-name)))))
+
+(add-hook 'find-file-hook
+          'th-rename-tramp-buffer)
+
+(defadvice find-file (around th-find-file activate)
+  "Open FILENAME using tramp's sudo method if it's read-only."
+  (if (and (not (file-writable-p (ad-get-arg 0)))
+           (y-or-n-p (concat "File "
+                             (ad-get-arg 0)
+                             " is read-only.  Open it as root? ")))
+      (th-find-file-sudo (ad-get-arg 0))
+    ad-do-it))
+
+(defun th-find-file-sudo (file)
+  "Opens FILE with root privileges."
+  (interactive "F")
+  (set-buffer (find-file (concat "/sudo::" file))))
+
+
+;; =====================================================
+;;
+;; Languages mode(各言語モード)
 ;;
 ;; =====================================================
 
@@ -197,8 +233,7 @@
 (setq interpreter-mode-alist (append
  '(("java" . java-mode)) interpreter-mode-alist))
 (setq java-deep-indent-paren-style nil)
-(add-hook 'java-mode-hook '(lambda () (inf-java-keys)))
-
+;(add-hook 'java-mode-hook '(lambda () (inf-java-keys)))
 
 
 ;;; *.ru
@@ -221,6 +256,15 @@
 (require 'haml-mode)
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
 
+
+;; =====================================================
+;;
+;; flymake mode
+;;
+;; =====================================================
+
+;; GUIの警告は表示しない
+(setq flymake-gui-warnings-enabled nil)
 
 ;;;;  flymake for ruby
 (when (load "flymake" t)
@@ -262,4 +306,3 @@
   (add-to-list 'flymake-allowed-file-name-masks
 	       '("\\.py\\'" flymake-pyflakes-init)))
 (load-library "flymake-cursor")
-  
