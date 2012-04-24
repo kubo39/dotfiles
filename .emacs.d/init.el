@@ -42,6 +42,8 @@
   (select-window w2))
 (add-hook 'after-init-hook (lambda()(split-window-and-run-term)))
 
+;;; スクリーン最大化
+;(set-frame-parameter nil 'fullscreen 'maximized)
 
 ; 自動略語補完
 (require 'auto-complete)
@@ -144,8 +146,8 @@
 ;;; kill-summry
 ; yankをべんりに
 ; C-n とC-pが大事。「.」でyankポインタを変更。
-(require 'kill-summary) ;"kill-summary" nil t)
-(define-key global-map "\ey" 'kill-summary)
+;(require 'kill-summary) ;"kill-summary" nil t)
+;(define-key global-map "\ey" 'kill-summary)
 
 ; wdired
 ;(require 'wdired)
@@ -265,6 +267,7 @@
 
 ;; GUIの警告は表示しない
 (setq flymake-gui-warnings-enabled nil)
+
 
 ;;;;  flymake for ruby
 (when (load "flymake" t)
