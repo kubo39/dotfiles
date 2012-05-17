@@ -45,6 +45,10 @@
 ;;; スクリーン最大化
 ;(set-frame-parameter nil 'fullscreen 'maximized)
 
+; 自動保存
+(require 'auto-save-buffers)
+(run-with-idle-timer 0.5 t 'auto-save-buffers)
+
 ; 自動略語補完
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -296,7 +300,7 @@
     (if (not (null buffer-file-name)) (flymake-mode))))
 
 
-;;; python: flymake+pyflakes+pep8
+;;; python: flymake + pyflakes + pep8
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 (when (load "flymake" t)
   (defun flymake-pyflakes-init ()
