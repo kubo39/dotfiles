@@ -113,7 +113,7 @@ if [ "$color_prompt" = yes ]; then
     PS1='( ՞ਊ ՞) < ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]:\W\$(__git_ps1) \$ '
 else
 #    PS1="、-=≡( ՞ਊ ՞) < ${debian_chroot:+($debian_chroot)}\u@\h:\w\$(__git_ps1) \$ "
-    PS1="三へ( へ՞ਊ ՞)へ ﾊｯﾊｯ ${debian_chroot:+($debian_chroot)}:\w\$(__git_ps1) \$ "
+    PS1="(＾ν＾) ${debian_chroot:+($debian_chroot)}:\w\$(__git_ps1) \$ "
 fi
 
 
