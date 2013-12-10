@@ -136,6 +136,7 @@ export PATH=$PATH:/home/kubo39/installs/py3/bin
 
 
 # Golang
-export GOROOT=/usr/lib/go
-export GOPATH=/usr/lib/_go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/go/bin
+export GOROOT=$HOME/go
+export GOPATH=$HOME/_go
+export PATH=$PATH:$GOROOT/bin:$PATH:$GOPATH/bin
