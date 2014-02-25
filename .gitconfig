@@ -1,7 +1,14 @@
 [user]
 	name = Hiroki Noda
 	email = kubo39@gmail.com
+
 [color]
 	ui = auto
+
 [alias]
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
+    ls = ls-files
+
+[core]
+    editor=/usr/bin/emacsclient
+    pager = less -R
