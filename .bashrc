@@ -127,9 +127,6 @@ WORKON_HOME=${HOME}/venv/
 #パッケージをvirtualenv環境下にインストール
 export PIP_RESPECT_VIRTUALENV=true
 
-# autojump
-#. /usr/share/autojump/autojump.sh
-
 
 # python3.3.2
 export PATH=$PATH:/home/kubo39/installs/py3/bin
