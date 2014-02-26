@@ -1,12 +1,12 @@
 [user]
-	name = Hiroki Noda
-	email = kubo39@gmail.com
+    name = Hiroki Noda
+    email = kubo39@gmail.com
 
 [color]
-	ui = auto
+    ui = auto
 
 [alias]
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     ls = ls-files
     uncommit = reset HEAD^
     authors = shortlog -sn
