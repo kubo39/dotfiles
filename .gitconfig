@@ -8,6 +8,7 @@
 [alias]
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     ls = ls-files
+    uncommit = reset HEAD^
 
 [core]
     editor=/usr/bin/emacsclient
