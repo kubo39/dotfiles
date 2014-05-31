@@ -36,6 +36,8 @@ if !has('vim_starting')
 	call neobundle#call_hook('on_source')
 endif
 
+set laststatus=2
+set t_Co=256
  
 nnoremap k gk
 nnoremap j gj
@@ -60,6 +62,22 @@ inoremap <C-k> <Esc>Da
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 
+
+let g:lightline = {}
+
+let g:lightline.active = {
+			\ 'left': [ [ 'mode', 'paste' ],
+			\           [ 'readonly', 'filename', 'modified' ] ],
+			\ 'right': [ [ 'lineinfo' ],
+			\            [ 'percent' ],
+			\            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+let g:lightline.inactive = {
+			\ 'left': [ [ 'filename' ] ],
+			\ 'right': [ [ 'lineinfo' ],
+			\            [ 'percent' ] ] }
+let g:lightline.tabline = {
+			\ 'left': [ [ 'tabs' ] ],
+			\ 'right': [ [ 'close' ] ] }
 
 " command-line completion
 set wildmenu
