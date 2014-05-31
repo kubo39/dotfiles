@@ -63,6 +63,10 @@ inoremap <C-n> <Down>
 inoremap <C-p> <Up>
 
 
+" 行番号を表示
+set number
+
+
 let g:lightline = {}
 
 let g:lightline.active = {
