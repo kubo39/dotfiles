@@ -12,5 +12,4 @@
     authors = shortlog -sn
 
 [core]
-    editor=/usr/bin/emacsclient
     pager = less -R
