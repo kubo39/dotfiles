@@ -1,6 +1,11 @@
 set fileencodings=utf-8,euc-jp,cp932
 set encoding=utf-8
 filetype off
+set title
+syntax on
+set tabstop=2
+set smartindent
+
 
 let s:neobundle_path = '~/.vim/bundle/neobundle.vim'
 
