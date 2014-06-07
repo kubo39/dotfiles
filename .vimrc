@@ -6,6 +6,10 @@ syntax on
 set tabstop=2
 set smartindent
 
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
 
 let s:neobundle_path = '~/.vim/bundle/neobundle.vim'
 
