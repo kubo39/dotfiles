@@ -30,7 +30,13 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'itchyny/lightline.vim'
-
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'phildawes/racer', {
+      \   'build' : {
+      \     'mac': 'cargo build --release',
+      \     'unix': 'cargo build --release',
+      \   }
+      \ }
 
 call neobundle#end()
 
@@ -101,3 +107,8 @@ let g:mapleader = ","
 
 " .vimrcの適用
 nnoremap <LEADER>rv :<C-u>source $MYVIMRC<CR>
+
+" racer -- auto compelete for rust の設定
+set hidden
+let g:racer_cmd = "/home/kubo39/racer/target/release/racer"
+let $RUST_SRC_PATH="/home/kubo39/rust/src/"
