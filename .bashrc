@@ -139,3 +139,6 @@ export PATH="$HOME/DCD/bin:$PATH"
 
 ## ldc
 export PATH=$PATH:$HOME/ldc2-0.15.1-linux-x86_64/bin
+
+## dub
+export PATH=$PATH:$HOME/bin
