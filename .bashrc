@@ -144,3 +144,4 @@ export PATH=$PATH:$HOME/bin
 
 ## nim
 export PATH=$PATH:$HOME/nim-0.11.2/bin
+export PATH=$PATH:$HOME/.nimble/bin
