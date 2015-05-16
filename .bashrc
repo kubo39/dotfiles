@@ -140,3 +140,7 @@ export PATH=$PATH:$HOME/ldc2-0.15.1-linux-x86_64/bin
 
 ## dub
 export PATH=$PATH:$HOME/bin
+
+
+## nim
+export PATH=$PATH:$HOME/nim-0.11.2/bin
