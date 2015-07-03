@@ -146,3 +146,7 @@ export PATH=$PATH:$HOME/bin
 #export PATH=$PATH:$HOME/nim-0.11.2/bin
 export PATH=$PATH:$HOME/Nim/bin
 export PATH=$PATH:$HOME/.nimble/bin
+
+## perl
+export PATH="$HOME/.plenv/bin:$PATH"
+eval "$(plenv init -)"
