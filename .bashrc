@@ -172,3 +172,16 @@ source '/home/kubo39/google-cloud-sdk/completion.bash.inc'
 
 # crystal
 export PATH="$HOME/crystal/bin:$PATH"
+
+
+agent="$HOME/.ssh/agent"
+if [ -S "$SSH_AUTH_SOCK" ]; then
+    case $SSH_AUTH_SOCK in
+    /tmp/*/agent.[0-9]*)
+        ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
+    esac
+elif [ -S $agent ]; then
+    export SSH_AUTH_SOCK=$agent
+else
+    echo "no ssh-agent"
+fi
