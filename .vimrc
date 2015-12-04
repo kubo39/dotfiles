@@ -53,7 +53,7 @@ endif
 
 set laststatus=2
 set t_Co=256
- 
+
 nnoremap k gk
 nnoremap j gj
 nnoremap <Up> gk
@@ -112,3 +112,12 @@ nnoremap <LEADER>rv :<C-u>source $MYVIMRC<CR>
 set hidden
 let g:racer_cmd = "/home/kubo39/racer/target/release/racer"
 let $RUST_SRC_PATH="/home/kubo39/rust/src/"
+
+filetype off
+filetype plugin indent off
+" Golang
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
+filetype plugin indent on
+syntax on
