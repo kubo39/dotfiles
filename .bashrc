@@ -185,3 +185,6 @@ elif [ -S $agent ]; then
 else
     echo "no ssh-agent"
 fi
+
+# nemerle
+export PATH="$PATH:$HOME/nemerle"
