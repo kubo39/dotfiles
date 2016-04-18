@@ -132,6 +132,9 @@ export PATH=$PATH:$GOROOT/bin:$PATH:$GOPATH/bin
 export RUST_SRC_PATH=/home/kubo39/rust/src
 
 
+## dmd
+source ~/dlang/dmd-2.071.0/activate
+
 ## dcd
 export PATH="$HOME/DCD/bin:$PATH"
 
@@ -139,7 +142,7 @@ export PATH="$HOME/DCD/bin:$PATH"
 export PATH=$PATH:$HOME/ldc2-0.15.1-linux-x86_64/bin
 
 ## dub
-export PATH=$PATH:$HOME/bin
+# export PATH=$PATH:$HOME/bin
 
 
 ## nim
@@ -185,6 +188,3 @@ elif [ -S $agent ]; then
 else
     echo "no ssh-agent"
 fi
-
-# nemerle
-export PATH="$PATH:$HOME/nemerle"
