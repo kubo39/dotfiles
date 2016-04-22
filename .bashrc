@@ -128,12 +128,6 @@ export GOROOT=$HOME/go
 export GOPATH=$HOME/_go
 export PATH=$PATH:$GOROOT/bin:$PATH:$GOPATH/bin
 
-## rust
-export RUST_SRC_PATH=/home/kubo39/rust/src
-
-
-## dmd
-source ~/dlang/dmd-2.071.0/activate
 
 ## dcd
 export PATH="$HOME/DCD/bin:$PATH"
@@ -146,35 +140,22 @@ export PATH=$PATH:$HOME/ldc2-0.15.1-linux-x86_64/bin
 
 
 ## nim
-#export PATH=$PATH:$HOME/nim-0.11.2/bin
 export PATH=$PATH:$HOME/Nim/bin
 export PATH=$PATH:$HOME/.nimble/bin
 
-## perl
-export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init -)"
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
-
-#export DOCKER_HOST="http://0.0.0.0:2376"
 
 
 ## julia
 export PATH=$PATH:$HOME/julia-e5c6964a49/bin
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/kubo39/google-cloud-sdk/path.bash.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/home/kubo39/google-cloud-sdk/completion.bash.inc'
-
-
-# crystal
-export PATH="$HOME/crystal/bin:$PATH"
 
 
 agent="$HOME/.ssh/agent"
