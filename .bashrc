@@ -169,3 +169,7 @@ elif [ -S $agent ]; then
 else
     echo "no ssh-agent"
 fi
+
+
+## Rust (with rustup)
+export PATH="$HOME/.cargo/bin:$PATH"
