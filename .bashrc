@@ -173,5 +173,3 @@ fi
 
 ## Rust (with rustup)
 export PATH="$HOME/.cargo/bin:$PATH"
-
-alias emacs='XMODIFIERS=@im=fcitx emacs'
