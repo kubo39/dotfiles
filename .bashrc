@@ -173,3 +173,8 @@ fi
 
 ## Rust (with rustup)
 export PATH="$HOME/.cargo/bin:$PATH"
+
+
+## dmd
+alias dmd="dmd -g -defaultlib=libphobos2.so -fPIC"
+alias rdmd="rdmd -g -defaultlib=libphobos2.so -fPIC"
