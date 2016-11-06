@@ -178,3 +178,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ## dmd
 alias dmd="dmd -g -defaultlib=libphobos2.so -fPIC"
 alias rdmd="rdmd -g -defaultlib=libphobos2.so -fPIC"
+
+
+## ldc
+alias ldc2="ldc2 -g -fPIC"
+alias ldmd2="ldmd2 -g -fPIC"
