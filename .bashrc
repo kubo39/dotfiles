@@ -135,9 +135,6 @@ export PATH="$HOME/DCD/bin:$PATH"
 ## ldc
 export PATH=$PATH:$HOME/ldc2-0.15.1-linux-x86_64/bin
 
-## dub
-# export PATH=$PATH:$HOME/bin
-
 
 ## nim
 export PATH=$PATH:$HOME/Nim/bin
@@ -147,17 +144,7 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 
-## julia
-export PATH=$PATH:$HOME/julia-e5c6964a49/bin
-
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/kubo39/google-cloud-sdk/path.bash.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/home/kubo39/google-cloud-sdk/completion.bash.inc'
-
-
+# ssh-agent
 agent="$HOME/.ssh/agent"
 if [ -S "$SSH_AUTH_SOCK" ]; then
     case $SSH_AUTH_SOCK in
@@ -183,3 +170,14 @@ alias rdmd="rdmd -g -defaultlib=libphobos2.so -fPIC"
 ## ldc
 alias ldc2="ldc2 -g -fPIC"
 alias ldmd2="ldmd2 -g -fPIC"
+
+
+# This loads DVM into a shell session.
+if [ -s /home/kubo39/.dvm/scripts/dvm ] ; then
+	. /home/kubo39/.dvm/scripts/dvm
+fi
+
+# colordiff
+if [[ -x `which colordiff` ]]; then
+    alias diff="colordiff -u"
+fi
