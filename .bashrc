@@ -161,17 +161,6 @@ fi
 ## Rust (with rustup)
 export PATH="$HOME/.cargo/bin:$PATH"
 
-
-## ldc
-alias ldc2="ldc2 -g -fPIC"
-alias ldmd2="ldmd2 -g -fPIC"
-
-
-# This loads DVM into a shell session.
-if [ -s /home/kubo39/.dvm/scripts/dvm ] ; then
-	. /home/kubo39/.dvm/scripts/dvm
-fi
-
 # colordiff
 if [[ -x `which colordiff` ]]; then
     alias diff="colordiff -u"
