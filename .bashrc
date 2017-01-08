@@ -132,9 +132,6 @@ export PATH=$PATH:$GOROOT/bin:$PATH:$GOPATH/bin
 ## dcd
 export PATH="$HOME/DCD/bin:$PATH"
 
-## ldc
-export PATH=$PATH:$HOME/ldc2-0.15.1-linux-x86_64/bin
-
 
 ## nim
 export PATH=$PATH:$HOME/Nim/bin
