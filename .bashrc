@@ -135,8 +135,8 @@ export PATH="$HOME/DCD/bin:$PATH"
 
 ## nim
 export PATH=$PATH:$HOME/Nim/bin
-export PATH=$PATH:$HOME/.nimble/bin
 
+## anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
