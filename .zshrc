@@ -33,6 +33,15 @@ autoload -U compinit; compinit
 
 
 #
+# Aliases
+#
+alias ls="ls -F --color"
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -la'
+
+
+#
 # Local Settings
 #
 if [ -r ~/.zshrc.local ]; then
