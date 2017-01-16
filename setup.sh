@@ -28,3 +28,5 @@ setup() {
 		symlink "$dotfiles/.zshenv" "$HOME/.zshenv"
 	fi
 }
+
+setup
