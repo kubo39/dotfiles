@@ -32,6 +32,7 @@ RPROMPT='%(?.%F{green}.%F{red})[%m:%1~]${vcs_info_msg_0_}%f'
 #
 # Completion
 #
+fpath+=~/.zfunc
 autoload -U compinit; compinit
 
 
