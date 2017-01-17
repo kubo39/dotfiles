@@ -1,5 +1,10 @@
+[user]
+    name = Hiroki Noda
+    email = kubo39@gmail.com
 [alias]
     co = checkout
     ci = commit -v
+[core]
+    editor = /usr/bin/vim
 [color]
     ui = 1
