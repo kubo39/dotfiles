@@ -10,11 +10,11 @@ setup() {
 		type "$1" > /dev/null 2>&1
 	}
 
-    symlink() {
+	symlink() {
 		[ -e "$2" ] || ln -s "$1" "$2"
 	}
 
-    if [ -d "$dotfiles" ]; then
+	if [ -d "$dotfiles" ]; then
 		(cd "$dotfiles" && git pull --rebase)
 	else
 		git clone git@github.com:kubo39/dotfiles "$dotfiles"
