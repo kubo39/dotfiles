@@ -15,7 +15,7 @@ setup() {
 	}
 
 	if [ -d "$dotfiles" ]; then
-		(cd "$dotfiles" && git pull --rebase)
+		(cd "$dotfiles" && git pull  --ff-only)
 	else
 		git clone git@github.com:kubo39/dotfiles "$dotfiles"
 	fi
