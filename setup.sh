@@ -4,7 +4,7 @@
 set -ue
 
 setup() {
-	dotfiles=$HOME/.dotfiles
+	dotfiles=$HOME/dotfiles
 
 	has() {
 		type "$1" > /dev/null 2>&1
