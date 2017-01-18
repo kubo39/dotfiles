@@ -1,0 +1,200 @@
+# -*- sh -*-
+#compdef dub
+
+_dub() {
+    typeset -A opt_args
+
+    _arguments -C \
+        '(-h --help)'{-h,--help}'[display general or command specific help]' \
+        '--root=[path to operate in instead of the current working dir]' \
+        '--registry=[search the given DUB registry URL first when resolving dependencies]' \
+        '--skip-registry=[skips searching certain package registries for dependencies]' \
+        '--annotate[do not perform any action, just print what would be done]' \
+        '--bare[read only packages contained in the current directory]' \
+        '(-v --verbose)'{-v,--verbose}'[print diagnostic output]' \
+        '--vverbose[print debug output]' \
+        '(-q, --quiet)'{-q,--quiet}'[only print warnings and errors]' \
+        '--vquiet[print no messages]' \
+        '--cache=[puts any fetched packages in the specified location]' \
+        '1: :_dub_cmds' \
+        '*:: :->args'
+
+    case $state in
+        args)
+            case $words[1] in
+                add-local | add-override | add-path | remove-local | remove-override | remove-path)
+                    _arguments -C \
+                        '--system[register system-wide instead of user-wide]' \
+                        ;;
+                build)
+                    _arguments -C \
+                        '(-a --arch)'{-a,--arch=}'[force a different architecture (e.g. x86 or x86_64)]' \
+                        '(-b --build)'{-b,--build=}'[specifies the type of build to perform]' \
+                        '--build-mode=[specifies the way the compiler and linker are invoked]' \
+                        '--compiler=[specifies the compiler binary to use (can be a path)]' \
+                        '(-c --config)'{-c,--config=}'[builds the specified configuration]' \
+                        '(-d --debug)'{-d,--debug=}'[define the specified debug version identifier]' \
+                        '(-f --force)'{-f,--force}'[forces a recompilation even if the target is up to date]' \
+                        '--force-remove[force deletion of fetched packages with untracked files]' \
+                        '--nodeps[do not check/update dependencies before building]' \
+                        '--rdmd[use rdmd instead of directly invoking the compiler]' \
+                        '--single[treats the package name as a filename]' \
+                        ;;
+                clean)
+                    _arguments -C \
+                        '--all-packages[cleans up *all* known packages (dub list)]' \
+                        ;;
+                convert)
+                    _arguments -C \
+                        '(-f --format)'{-f,--format=}'[specifies the target package recipe format]' \
+                        '(-s --stdout)'{-s,--stdout}'[outputs the converted package recipe to stdout]' \
+                        ;;
+                describe)
+                    _arguments -C \
+                        '(-b --build)'{-b,--build=}'[specifies the type of build to perform]' \
+                        '(-c --config)'{-c,--config=}'[builds the specified configuration]' \
+                        '--compiler=[specifies the compiler binary to use (can be a path)]' \
+                        '(-a --arch)'{-a,--arch=}'[force a different architecture (e.g. x86 or x86_64)]' \
+                        '(-d --debug)'{-d,--debug=}'[define the specified debug version identifier when building]' \
+                        '--nodeps[do not check/update dependencies before building]' \
+                        '--force-remove[force deletion of fetched packages with untracked files when upgrading]' \
+                        '--build-mode=[specifies the way the compiler and linker are invoked]' \
+                        '--single[treats the package name as a filename]' \
+                        '--import-paths[shortcut for --data=import-paths --data-list]' \
+                        '--string-import-paths[shortcut for --data=string-import-paths --data-list]' \
+                        '--data=[just list the values of a particular build setting]' \
+                        '--data-list[output --data information in list format]' \
+                        '--data-0[output --data information using null-delimiters]' \
+                        ;;
+                dustmite)
+                    _arguments -C \
+                        '--compiler-status=[the expected status code of the compiler run]' \
+                        '--compiler-regex=[a regular expression used to match against the compiler output]' \
+                        '--linker-status=[the expected status code of the linker run]' \
+                        '--linker-regex=[a regular expression used to match against the linker output]' \
+                        '--program-status=[the expected status code of the built executable]' \
+                        '--program-regex=[a regular expression used to match against the program output]' \
+                        '--test-package=[perform a test run - usually only used internally]' \
+                        '--combined[builds multiple packages with one compiler run]' \
+                        '(-b --build)'{-b,--build=}'[specifies the type of build to perform]' \
+                        '(-c --config)'{-c,--config=}'[builds the specified configuration]' \
+                        '--compiler=[specifies the compiler binary to use (can be a path)]' \
+                        '(-a --arch)'{-a,--arch=}'[force a different architecture (e.g. x86 or x86_64)]' \
+                        '(-d --debug)'{-d,--debug=}'[define the specified debug version identifier]' \
+                        '--nodeps[do not check/update dependencies before building]' \
+                        '--force-remove[force deletion of fetched packages with untracked files when upgrading]' \
+                        '--build-mode=[specifies the way the compiler and linker are invoked]' \
+                        '--single[treats the package name as a filename]' \
+                        ;;
+                fetch)
+                    _arguments -C \
+                        '--version=[use the specified version/branch]' \
+                        '--force-remove[force deletion of fetched packages with untracked files]' \
+                        ;;
+                generate)
+                    _arguments -C \
+                        '(-b --build)'{-b,--build=}'[specifies the type of build to perform]' \
+                        '(-c --config)'{-c,--config=}'[builds the specified configuration]' \
+                        '--compiler=[specifies the compiler binary to use (can be a path)]' \
+                        '(-a --arch)'{-a,--arch=}'[force a different architecture (e.g. x86 or x86_64)]' \
+                        '(-d --debug)'{-d,--debug=}'[define the specified debug version identifier]' \
+                        '--nodeps[do not check/update dependencies before building]' \
+                        '--force-remove[force deletion of fetched packages with untracked files when upgrading]' \
+                        '--build-mode=[specifies the way the compiler and linker are invoked]' \
+                        '--single[treats the package name as a filename]' \
+                        '--combined[tries to build the whole project in a single compiler run]' \
+                        '--print-builds[prints the list of available build types]' \
+                        '--print-configs[prints the list of available configurations]' \
+                        '--print-platform[prints the identifiers for the current build platform]' \
+                        '--parallel[runs multiple compiler instances in parallel, if possible]' \
+                        ;;
+                init)
+                    _arguments -C \
+                        '(-t --type)'{-t,--type=}'[set the type of project to generate]' \
+                        '(-f --format)'{-f,--format=}'[sets the format to use for the package description file]' \
+                        '(-n --non-interactive)'{-n,--non-interactive}'[do not enter interactive mode]' \
+                        ;;
+                remove)
+                    _arguments -C \
+                        '--version=[use the specified version/branch]' \
+                        '--force-remove[force deletion of fetched packages with untracked files]' \
+                        '(-n --non-interactive)'{-n,--non-interactive}'[do not enter interactive mode]' \
+                        ;;
+                run)
+                    _arguments -C \
+                        '--temp-build[builds the project in the temp folder if possible]' \
+                        '--rdmd[use rdmd instead of directly invoking the compiler]' \
+                        '(-f --force)'{-f,--force}'[forces a recompilation even if the target is up to date]' \
+                        '(-b --build)'{-b,--build=}'[specifies the type of build to perform]' \
+                        '(-c --config)'{-c,--config=}'[builds the specified configuration]' \
+                        '--compiler=[specifies the compiler binary to use (can be a path)]' \
+                        '(-a --arch)'{-a,--arch=}'[force a different architecture (e.g. x86 or x86_64)]' \
+                        '(-d --debug)'{-d,--debug=}'[define the specified debug version identifier]' \
+                        '--nodeps[do not check/update dependencies before building]' \
+                        '--force-remove[force deletion of fetched packages with untracked files when upgrading]' \
+                        '--build-mode=[specifies the way the compiler and linker are invoked]' \
+                        '--single[treats the package name as a filename]' \
+                        '--combined[tries to build the whole project in a single compiler run]' \
+                        '--print-builds[prints the list of available build types]' \
+                        '--print-configs[prints the list of available configurations]' \
+                        '--print-platform[prints the identifiers for the current build platform]' \
+                        '--parallel[runs multiple compiler instances in parallel, if possible]' \
+                        ;;
+                test)
+                    _arguments -C \
+                        '--main-file=[specifies a custom file containing the main() function to use for running the tests]' \
+                        '--combined[tries to build the whole project in a single compiler run]' \
+                        '(-f --force)'{-f,--force}'[forces a recompilation even if the target is up to date]' \
+                        '--coverage[enables code coverage statistics to be generated]' \
+                        '(-b --build)'{-b,--build=}'[specifies the type of build to perform]' \
+                        '(-c --config)'{-c,--config=}'[builds the specified configuration]' \
+                        '--compiler=[specifies the compiler binary to use (can be a path)]' \
+                        '(-a --arch)'{-a,--arch=}'[force a different architecture (e.g. x86 or x86_64)]' \
+                        '(-d --debug)'{-d,--debug=}'[define the specified debug version identifier]' \
+                        '--nodeps[do not check/update dependencies before building]' \
+                        '--force-remove[force deletion of fetched packages with untracked files when upgrading]' \
+                        '--build-mode=[specifies the way the compiler and linker are invoked]' \
+                        '--single[treats the package name as a filename]' \
+                        ;;
+                upgrade)
+                    _arguments -C \
+                        '--prerelease[uses the latest pre-release version]' \
+                        '--force-remove[force deletion of fetched packages with untracked files]' \
+                        '--verify[updates the project and performs a build]' \
+                        '--missing-only[performs an upgrade only for dependencies]' \
+                        ;;
+            esac
+    esac
+}
+
+_dub_cmds(){
+    local -a _c
+    _c=(
+        'add-local:adds a local package directory (e.g. a git repository)'
+        'add-override:adds a new package override'
+        'add-path:adds a default package search path'
+        'build:builds a package (uses the main package in the current working directory by default)'
+        'clean:removes intermediate build files and cached build results'
+        'clean-caches:removes cached metadata'
+        'convert:converts the file format of the package recipe'
+        'describe:prints a JSON description of the project and its dependencies'
+        'dustmite:create reduced test cases for build errors'
+        'fetch:manually retrieves and caches a package'
+        'generate:generates project files using the specified generator'
+        'help:display general or command specific help'
+        'init:initializes an empty package skeleton'
+        'list:prints a list of all local packages dub is aware of'
+        'list-overrides:prints a list of all local package overrides'
+        'remove:removes a cached package'
+        'remove-local:removes a local package directory'
+        'remove-override:removes an existing package override'
+        'remove-path:removes a package search path'
+        'run:builds and runs a package (default command)'
+        'search:search for available packages'
+        'test:executes the tests of the selected package'
+        'upgrade:forces an upgrade of all dependencies'
+    )
+    _describe -t commands Commands _c
+}
+
+_dub
