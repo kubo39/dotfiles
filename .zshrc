@@ -39,7 +39,7 @@ autoload -U compinit; compinit
 #
 # Aliases
 #
-alias ls="ls -F --color"
+alias ls="ls -GF"
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
