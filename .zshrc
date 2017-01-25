@@ -39,7 +39,15 @@ autoload -U compinit; compinit
 #
 # Aliases
 #
-alias ls="ls -GF"
+case ${OSTYPE} in
+    freebsd*)
+        alias ls="ls -GF"
+        ;;
+    linux*)
+        alias ls="ls -F --color"
+        ;;
+esac
+
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
