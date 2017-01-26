@@ -8,6 +8,12 @@ if [ -d "$HOME/.anyenv" ]; then
     eval "$(anyenv init -)"
 fi
 
+case ${OSTYPE} in
+    openbsd*)
+        export PKG_PATH=http://ftp.jaist.ac.jp/pub/OpenBSD/$(uname -r)/packages/$(uname -p)/
+        ;;
+esac
+
 if [ -r ~/.zshenv.local ]; then
   . ~/.zshenv.local
 fi
