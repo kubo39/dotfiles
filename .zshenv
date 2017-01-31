@@ -2,6 +2,7 @@
 [ -d "$HOME/.rusty-tags" ] && export export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 [ -d "$HOME/DCD" ] && export PATH="$HOME/DCD/bin:$PATH"
 [ -d "$HOME/Nim" ] && export PATH=$PATH:$HOME/Nim/bin
+[ -d "$HOME/ponyc" ] && export PATH=$PATH:$HOME/ponyc/build/release
 
 if [ -d "$HOME/.anyenv" ]; then
     export PATH="$HOME/.anyenv/bin:$PATH"
