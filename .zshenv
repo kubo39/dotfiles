@@ -6,7 +6,7 @@
 
 if [ -d "$HOME/.anyenv" ]; then
     export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
+    eval "$(anyenv init - --no-rehash)"
 fi
 
 case ${OSTYPE} in
