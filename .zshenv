@@ -1,5 +1,5 @@
 [ -d "$HOME/.cargo" ] && export PATH="$HOME/.cargo/bin:$PATH"
-[ -d "$HOME/.rusty-tags" ] && export export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
+[ -d "$HOME/.rusty-tags" ] && export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 [ -d "$HOME/DCD" ] && export PATH="$HOME/DCD/bin:$PATH"
 [ -d "$HOME/DScanner" ] && export PATH="$HOME/DScanner/bin:$PATH"
 [ -d "$HOME/Nim" ] && export PATH=$PATH:$HOME/Nim/bin
