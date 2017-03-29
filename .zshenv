@@ -4,7 +4,7 @@
 [ -d "$HOME/DScanner" ] && export PATH="$HOME/DScanner/bin:$PATH"
 [ -d "$HOME/Nim" ] && export PATH=$PATH:$HOME/Nim/bin
 [ -d "$HOME/ponyc" ] && export PATH=$PATH:$HOME/ponyc/build/release
-[ -d "$HOME/.local/bin" ] && export PATH=$PATH:$HOME/.local/bin
+[ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
 
 if [ -d "$HOME/.anyenv" ]; then
     export PATH="$HOME/.anyenv/bin:$PATH"
