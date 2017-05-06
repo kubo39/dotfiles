@@ -1,3 +1,5 @@
+# zmodload zsh/zprof && zprof
+
 [ -d "$HOME/.cargo" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -d "$HOME/.rusty-tags" ] && export export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 [ -d "$HOME/DCD" ] && export PATH="$HOME/DCD/bin:$PATH"

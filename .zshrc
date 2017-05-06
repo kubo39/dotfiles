@@ -14,11 +14,12 @@ SAVEHIST=$HISTSIZE
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt share_history
+setopt NO_beep
 
 #
 # Prompt
 #
-autoload vcs_info
+autoload -Uz vcs_info
 precmd() {
   vcs_info
 }
@@ -33,7 +34,8 @@ RPROMPT='%(?.%F{green}.%F{red})[%m:%1~]${vcs_info_msg_0_}%f'
 # Completion
 #
 fpath+=~/.zfunc
-autoload -U compinit; compinit
+autoload -Uz compinit
+compinit -C
 
 
 #
@@ -59,3 +61,7 @@ alias lla='ls -la'
 if [ -r ~/.zshrc.local ]; then
   . ~/.zshrc.local
 fi
+
+# if (which zprof > /dev/null) ;then
+#   zprof | less
+# fi
