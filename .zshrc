@@ -16,6 +16,11 @@ setopt hist_ignore_space
 setopt share_history
 setopt NO_beep
 
+setopt transient_rprompt # http://www.machu.jp/diary/20130114.html
+
+# http://kimoto.hatenablog.com/entry/2012/08/14/112500
+local REPORTTIME=1
+
 #
 # Prompt
 #
