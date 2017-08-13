@@ -7,6 +7,13 @@
 [ -d "$HOME/.nimble" ] && export PATH=$PATH:$HOME/.nimble/bin
 [ -d "$HOME/ponyc" ] && export PATH=$PATH:$HOME/ponyc/build/release
 [ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
+[ -d "$HOME/.dub" ] && export PATH=$PATH:$HOME/.dub/packages/dfmt-master/dfmt
+
+if [ -d "$HOME/gopath" ]; then
+    export PATH=/usr/local/go/bin:$PATH
+    export GOPATH="$HOME/gopath"
+    export PATH=$GOPATH/bin:$PATH
+fi
 
 if [ -d "$HOME/.anyenv" ]; then
     export PATH="$HOME/.anyenv/bin:$PATH"
