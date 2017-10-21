@@ -1,13 +1,11 @@
-# zmodload zsh/zprof && zprof
+#zmodload zsh/zprof && zprof
 
 [ -d "$HOME/.cargo" ] && export PATH="$HOME/.cargo/bin:$PATH"
-[ -d "$HOME/.rusty-tags" ] && export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 [ -d "$HOME/DCD" ] && export PATH="$HOME/DCD/bin:$PATH"
 [ -d "$HOME/DScanner" ] && export PATH="$HOME/DScanner/bin:$PATH"
 [ -d "$HOME/.nimble" ] && export PATH=$PATH:$HOME/.nimble/bin
 [ -d "$HOME/ponyc" ] && export PATH=$PATH:$HOME/ponyc/build/release
 [ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
-[ -d "$HOME/.dub" ] && export PATH=$PATH:$HOME/.dub/packages/dfmt-master/dfmt
 
 if [ -d "$HOME/gopath" ]; then
     export PATH=/usr/local/go/bin:$PATH

@@ -164,3 +164,6 @@ export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 if [[ -x `which colordiff` ]]; then
     alias diff="colordiff -u"
 fi
+
+# added by travis gem
+[ -f /home/kubo39/.travis/travis.sh ] && source /home/kubo39/.travis/travis.sh
