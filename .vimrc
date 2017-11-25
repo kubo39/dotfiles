@@ -31,6 +31,7 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'JesseKPhillips/d.vim'
 NeoBundle 'phildawes/racer', {
       \   'build' : {
       \     'mac': 'cargo build --release',
