@@ -23,7 +23,7 @@ setup() {
 	symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
 	symlink "$dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 	symlink "$dotfiles/.gdbinit" "$HOME/.gdbinit"
-	symlink "$dotfiles/.rusty-tags" "$HOME/.rusty-tags"
+	symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
 
 	if has zsh; then
 		symlink "$dotfiles/.zshrc" "$HOME/.zshrc"
