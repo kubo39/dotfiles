@@ -30,6 +30,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('rust-lang/rust.vim')
   call dein#add('JesseKPhillips/d.vim')
   call dein#add('idanarye/vim-dutyl')
+  call dein#add('racer-rust/vim-racer')
 
   call dein#end()
   call dein#save_state()
@@ -97,8 +98,7 @@ nnoremap <LEADER>rv :<C-u>source $MYVIMRC<CR>
 
 " racer -- auto compelete for rust の設定
 set hidden
-let g:racer_cmd = "/home/kubo39/racer/target/release/racer"
-let $RUST_SRC_PATH="/home/kubo39/rust/src/"
+let g:racer_cmd = "~/.cargo/bin/racer"
 
 filetype off
 filetype plugin indent off
