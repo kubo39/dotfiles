@@ -29,6 +29,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('sjl/gundo.vim')
   call dein#add('rust-lang/rust.vim')
   call dein#add('JesseKPhillips/d.vim')
+  call dein#add('idanarye/vim-dutyl')
 
   call dein#end()
   call dein#save_state()
@@ -107,3 +108,8 @@ if $GOROOT != ''
 endif
 filetype plugin indent on
 syntax on
+
+" dutly config
+let g:dutyl_stdImportPaths=['~/dlang/dmd-2.077.0/']
+call dutyl#register#tool('dcd-client','~/DCD/dcd-client')
+call dutyl#register#tool('dcd-server','~/DCD/dcd-server')
