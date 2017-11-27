@@ -10,47 +10,32 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-
-let s:neobundle_path = '~/.vim/bundle/neobundle.vim'
-
-if has('vim_starting')
-	set nocompatible                " Recommend
-	"if !isdirectory(s:neobundle_path)
-	"	system('git clone https://github.com/Shougo/neobundle.vim '.s:neobundle_path)
-	"endif
-	set runtimepath+=~/.vim/bundle/neobundle.vim
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
-call neobundle#begin(expand('~/.vim/bundle'))
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+if dein#load_state('~/.vim/dein')
+  call dein#begin('~/.vim/dein')
 
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'JesseKPhillips/d.vim'
-NeoBundle 'phildawes/racer', {
-      \   'build' : {
-      \     'mac': 'cargo build --release',
-      \     'unix': 'cargo build --release',
-      \   }
-      \ }
+  call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
 
-call neobundle#end()
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('vim-jp/vimdoc-ja')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('sjl/gundo.vim')
+  call dein#add('rust-lang/rust.vim')
+  call dein#add('JesseKPhillips/d.vim')
 
-filetype plugin indent on       " Required!
-
-NeoBundleCheck
-
-" ...
-
-if !has('vim_starting')
-	" Call on_source hook when reloading .vimrc.
-	call neobundle#call_hook('on_source')
+  call dein#end()
+  call dein#save_state()
 endif
+
+filetype plugin indent on
+syntax enable
 
 set laststatus=2
 set t_Co=256
