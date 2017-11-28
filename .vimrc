@@ -21,6 +21,11 @@ if dein#load_state('~/.vim/dein')
 
   call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
 
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('vim-jp/vimdoc-ja')
@@ -31,6 +36,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('JesseKPhillips/d.vim')
   call dein#add('idanarye/vim-dutyl')
   call dein#add('racer-rust/vim-racer')
+  call dein#add('landaire/deoplete-d')
 
   call dein#end()
   call dein#save_state()
@@ -96,6 +102,9 @@ let g:mapleader = ","
 " .vimrcの適用
 nnoremap <LEADER>rv :<C-u>source $MYVIMRC<CR>
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
 " racer -- auto compelete for rust の設定
 set hidden
 let g:racer_cmd = '~/.cargo/bin/racer'
@@ -109,7 +118,12 @@ endif
 filetype plugin indent on
 syntax on
 
-" dutly config
+" D Programming Langauge
+"   dutly config
 let g:dutyl_stdImportPaths=['~/dlang/dmd-2.077.0/']
 call dutyl#register#tool('dcd-client','~/DCD/dcd-client')
 call dutyl#register#tool('dcd-server','~/DCD/dcd-server')
+"   deoplete-d
+let g:deoplete#source#dcd_client_binary = '~/DCD/dcd-client'
+let g:deoplete#source#dcd_server_binary = '~/DCD/dcd-server'
+let g:deoplete#source#dcd_server_autostart = 1
