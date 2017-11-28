@@ -98,7 +98,7 @@ nnoremap <LEADER>rv :<C-u>source $MYVIMRC<CR>
 
 " racer -- auto compelete for rust の設定
 set hidden
-let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_cmd = '~/.cargo/bin/racer'
 
 filetype off
 filetype plugin indent off
