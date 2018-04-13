@@ -68,7 +68,9 @@ if [ -r ~/.zshrc.local ]; then
 fi
 
 # added by travis gem
-[ -f /home/kubo39/.travis/travis.sh ] && source /home/kubo39/.travis/travis.sh
+if [ -f /home/kubo39/.travis/travis.sh ]; then
+    source /home/kubo39/.travis/travis.sh
+fi
 
 
 # if (which zprof > /dev/null) ;then
