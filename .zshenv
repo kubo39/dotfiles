@@ -7,7 +7,7 @@
 [ -d "$HOME/ponyc" ] && export PATH=$PATH:$HOME/ponyc/build/release
 [ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
 
-if [ -d "$HOME/gopath" ]; then
+if [ -d "$HOME/go" ]; then
     export PATH=/usr/local/go/bin:$PATH
     export GOPATH="$HOME/gopath"
     export PATH=$GOPATH/bin:$PATH
