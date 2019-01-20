@@ -1,10 +1,17 @@
 [user]
-    name = Hiroki Noda
-    email = kubo39@gmail.com
+    name = "Hiroki Noda"
+    email = "kubo39@gmail.com"
 [alias]
-    co = checkout
-    ci = commit -v
+    co = "checkout"
+    ci = "commit -v"
 [core]
+    autocrlf = false
     editor = /usr/bin/vim
 [color]
     ui = 1
+[merge]
+    conflictstyle = "diff3"
+[diff]
+    algorithm = "histogram"
+[pull]
+    ff = "only"
