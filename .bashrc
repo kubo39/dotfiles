@@ -129,9 +129,10 @@ export GOPATH=$HOME/_go
 export PATH=$PATH:$GOROOT/bin:$PATH:$GOPATH/bin
 
 
-## dcd
-export PATH="$HOME/DCD/bin:$PATH"
-
+## Dlang
+if [ -d "$HOME/.dub/bin/" ]; then
+    export PATH="$HOME/.dub/bin:$PATH"
+fi
 
 ## nim
 export PATH=$PATH:$HOME/Nim/bin
@@ -157,7 +158,6 @@ fi
 
 ## Rust (with rustup)
 export PATH="$HOME/.cargo/bin:$PATH"
-# rusty-tags
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 
 # colordiff

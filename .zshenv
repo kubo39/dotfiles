@@ -1,11 +1,13 @@
 #zmodload zsh/zprof && zprof
 
 [ -d "$HOME/.cargo" ] && export PATH="$HOME/.cargo/bin:$PATH"
-[ -d "$HOME/DCD" ] && export PATH="$HOME/DCD/bin:$PATH"
-[ -d "$HOME/DScanner" ] && export PATH="$HOME/DScanner/bin:$PATH"
 [ -d "$HOME/.nimble" ] && export PATH=$PATH:$HOME/.nimble/bin
 [ -d "$HOME/ponyc" ] && export PATH=$PATH:$HOME/ponyc/build/release
 [ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
+
+if [ -d "$HOME/.dub/bin/" ]; then
+    export PATH="$HOME/.dub/bin:$PATH"
+fi
 
 if [ -d "$HOME/go" ]; then
     export PATH=/usr/local/go/bin:$PATH
