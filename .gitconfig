@@ -15,3 +15,5 @@
     algorithm = "histogram"
 [pull]
     ff = "only"
+[rerere]
+	enabled = true
