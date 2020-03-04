@@ -10,9 +10,7 @@ if [ -d "$HOME/.dub/bin/" ]; then
 fi
 
 if [ -d "$HOME/go" ]; then
-    export PATH=/usr/local/go/bin:$PATH
-    export GOPATH="$HOME/gopath"
-    export PATH=$GOPATH/bin:$PATH
+    export PATH=$HOME/.local/go/bin:$HOME/go/bin:$PATH
 fi
 
 if [ -d "$HOME/.anyenv" ]; then
