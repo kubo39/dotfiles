@@ -5,10 +5,6 @@
 [ -d "$HOME/ponyc" ] && export PATH=$PATH:$HOME/ponyc/build/release
 [ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
 
-if [ -d "$HOME/.dub/bin/" ]; then
-    export PATH="$HOME/.dub/bin:$PATH"
-fi
-
 if [ -d "$HOME/go" ]; then
     export PATH=$HOME/.local/go/bin:$HOME/go/bin:$PATH
 fi
