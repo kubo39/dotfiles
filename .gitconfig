@@ -17,3 +17,5 @@
     ff = "only"
 [rerere]
 	enabled = true
+[hub]
+	protocol = https
