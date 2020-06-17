@@ -76,3 +76,13 @@ fi
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
+
+# opam configuration
+test -r /home/kubo39/.opam/opam-init/init.zsh && . /home/kubo39/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
+# Wasmer
+export WASMER_DIR="/home/kubo39/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
