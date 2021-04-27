@@ -67,12 +67,6 @@ if [ -r ~/.zshrc.local ]; then
   . ~/.zshrc.local
 fi
 
-# added by travis gem
-if [ -f /home/kubo39/.travis/travis.sh ]; then
-    source /home/kubo39/.travis/travis.sh
-fi
-
-
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
