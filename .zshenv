@@ -4,7 +4,7 @@
 [ -d "$HOME/.nimble" ] && export PATH=$PATH:$HOME/.nimble/bin
 [ -d "$HOME/ponyc" ] && export PATH=$PATH:$HOME/ponyc/build/release
 [ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
-[ -d "$HOME/wasi-sdk-12.0/" ] && export PATH=$PATH:$HOME/wasi-sdk-12.0/bin
+[ -d "$HOME/wasi-sdk-14.0/" ] && export PATH=$PATH:$HOME/wasi-sdk-14.0/bin
 [ -d "$HOME/cmake" ] && export PATH=$HOME/cmake/bin:$PATH
 
 if [ -d "$HOME/go" ]; then
