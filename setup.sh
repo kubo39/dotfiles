@@ -17,7 +17,7 @@ setup() {
 	if [ -d "$dotfiles" ]; then
 		(cd "$dotfiles" && git pull  --ff-only)
 	else
-		git clone git@github.com:kubo39/dotfiles "$dotfiles"
+		git clone https://github.com:/ubo39/dotfiles "$dotfiles"
 	fi
 
 	symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
